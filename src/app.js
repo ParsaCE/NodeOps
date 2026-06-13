@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.json({ message: 'NodeOps API is running!' });
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   logger.error(err.message);
   res.status(500).json({ error: 'Internal Server Error' });
 });
