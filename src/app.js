@@ -2,6 +2,7 @@ import express from 'express';
 import logger from './utils/logger.js';
 import healthRouter from './routes/health.routes.js';
 import todosRouter from './routes/todos.routes.js';
+import './config/redis.js'
 
 const app = express();
 
