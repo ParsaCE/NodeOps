@@ -17,6 +17,10 @@ services:
       - .env.prod
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 512M
 
   cache:
     image: redis:7-alpine
