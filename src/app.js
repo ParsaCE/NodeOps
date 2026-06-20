@@ -3,12 +3,17 @@ import logger from './utils/logger.js';
 import healthRouter from './routes/health.routes.js';
 import todosRouter from './routes/todos.routes.js';
 import './config/redis.js'
+import morgan from 'morgan';
 
 const app = express();
 
 app.use(express.json());
 app.use(healthRouter);
 app.use('/api', todosRouter);
+
+app.use(morgan('combined', {
+  stream: { write: (message) => logger.info(message.trim()) }
+}));
 
 app.get('/', (req, res) => {
   logger.info('Root endpoint hit');
