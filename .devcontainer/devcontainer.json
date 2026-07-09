@@ -29,6 +29,5 @@ cat > .devcontainer/devcontainer.json << 'EOF'
     }
   },
 
-  "remoteUser": "node",
   "postCreateCommand": "npm ci"
 }
